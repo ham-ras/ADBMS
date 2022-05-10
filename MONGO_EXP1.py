@@ -46,3 +46,8 @@ for x in results:
 results = collection.find({"$nor":[{"address.city": "Kollam"}]},{"name":1, "address.city":1})
 for x in results:
    print(x)
+
+10
+results = collection.find({"address.city" :{"$in":["Kollam","Thiruvananthapuram"]}},{"name":1, "address.city":1})
+for x in results:
+   print(x["name"]["fname"] + " " + x["name"]["lname"])
